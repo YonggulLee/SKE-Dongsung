@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- -->
+    <meta charset="utf-8" />
+    <title>SK에코플랜트 현장 IoT System</title>
+    <!-- Design : 마스터 CSS -->
+    <link rel="stylesheet" href="assets/design/css/master.css" />
+    <!-- Design : 상단 탑 네비게이션 -->
+    <link rel="stylesheet" href="assets/design/css/top-bar.css" />
+    <!-- Design : 사이드 네비게이션 -->
+    <link rel="stylesheet" href="assets/design/css/side-bar.css" />
+    <!-- Design : 화재 알람  -->
+    <link rel="stylesheet" href="assets/design/css/fire-alarm.css" />
+    <!-- Design - Plugin : 라이트 박스  -->
+    <link rel="stylesheet" href="assets/plugins/lightbox/css/lightbox.css" />
+    <!-- CDN - Design : 폰트 어섬  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <!-- CDN - library  : 제이쿼리  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- CDN - library  : 엑시오스 -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- Plugin : LightBox - 사진 팝업 및 확대 -->
+    <script src="assets/plugins/lightbox/js/lightbox.js" defer></script>
+    <!-- Plugin : SheetJS - 엑셀 파일 생성 -->
+    <script src="assets/plugins/sheetjs/xlsx.full.min.js" defer></script>
+    <!-- Plugin : File Saver - 엑셀 파일 다운로드  -->
+    <script src="assets/plugins/filesaver/FileSaver.min.js" defer></script>
+    <!-- Plugin : File Saver - 엑셀 파일 다운로드  -->
+    <script src="assets/plugins/chartjs/chart.min.js" defer></script>
+    <!-- ETC : Tool Box - 기타 유용한 기능들을 뫃아놓은 툴박스  -->
+    <script src="assets/js/utility.js" defer></script>
+    <!-- PDJ : Page Dafault Javascript -->
+    <script src="assets/js/firealarm.js" defer></script>
+  </head>
+
+  <body>
+    <!-- 탑 메뉴 -->
+    <header class="top-bar-container">
+      <nav class="top-bar">
+        <ol class="top-bar-item-box">
+          <li class="top-bar-item">
+            <a href="#">
+              <img src="assets/img/top-bar_logo.png" alt="" />
+            </a>
+          </li>
+
+          <li class="top-bar-item">
+            <span class="top-bar-title">현장IoT플랫폼</span>
+          </li>
+
+          <li class="top-bar-item">
+            <select class="dropbtn" id="preset-list">
+              <option class="dropdown-content" value="">
+                프리셋을 선택하세요
+              </option>
+            </select>
+            <div class="dropdown">
+              <!-- <button class="dropbtn">프리셋을 선택하세요</button>
+              <div class="dropdown-content">
+                <span href="#"> Link 1 </span>
+                <span href="#"> Link 2 </span>
+                <span href="#"> Link 3 </span>
+                <span href="#"> Link 4 </span>
+                <span href="#"> Link 5 </span>
+              </div> -->
+              <button class="preset-start" style="display: none">시작</button>
+              <button class="preset-stop" style="display: none">정지</button>
+            </div>
+          </li>
+
+          <li class="top-bar-item">
+            <a href="#">
+              <img src="assets/img/top-bar_profile.png" alt="" />
+            </a>
+          </li>
+
+          <li class="top-bar-item">
+            <span class="top-bar-name">이용걸</span>
+          </li>
+
+          <li class="top-bar-item">Log-out</li>
+        </ol>
+      </nav>
+    </header>
+
+    <!-- 사이드 메뉴 -->
+    <section class="side-bar-container">
+      <nav class="side-bar">
+        <ol class="side-bar-item-box">
+          <!-- 사이드 메뉴 : 종합현황 -->
+          <li class="side-bar-item">
+            <a href="dashboard.html"
+              >종합현황<br /><span class="side-bar-item-title-eng"
+                >Dashboard</span
+              ></a
+            >
+          </li>
+
+          <!-- 사이드 메뉴 : 장치알람 -->
+          <li class="side-bar-item">
+            <a href="firealarm.html"
+              >화재 알람<br /><span class="side-bar-item-title-eng"
+                >Fire Alarm</span
+              ></a
+            >
+          </li>
+
+          <!-- 사이드 메뉴 : 지상부(제어,센서,통신장비) -->
+          <!-- <li class="side-bar-item">
+                        <a href="groundfloor.html"
+                            >지상부<br /><span class="side-bar-item-title-eng"
+                                >Ground Floor</span
+                            ></a
+                        >
+                    </li> -->
+
+          <!-- 사이드 메뉴 : 스마트밴드(건강관리,위치관리) -->
+          <li class="side-bar-item">
+            <a href="smartband.html"
+              >스마트 밴드<br /><span class="side-bar-item-title-eng"
+                >Health & Location</span
+              ></a
+            >
+          </li>
+        </ol>
+      </nav>
+    </section>
+
+    <!-- 콘텐츠 영역 -->
+    <section class="content-container-firealarm">
+      <!-- fire-alarm-section-->
+      <section class="fire-alarm-section">
+        <header>
+          <h1>화재 알람 | Fire Alarm</h1>
+        </header>
+        <!-- 화재 알람 배치 박스 -->
+        <section class="fire-alarm-box">
+          <!-- 화재 알람 컴포넌트 01 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01"><i class="fas fa-check-circle"></i> 정상</p>
+              <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+
+          <!-- 화재 알람 컴포넌트 0 -->
+          <article class="fire-alarm-component">
+            <img
+              class="fire-alarm-img"
+              src="assets/img/dashboard_icon_fire.png"
+              alt=""
+            />
+            <div class="fire-alarm-title">SK안전</div>
+            <div class="fire-alarm-status">
+              <p id="fire-01">
+                <!-- <i class="fas fa-check-circle"></i> 정상 -->
+                <!-- <i class="fas fa-times-circle"></i> 비정상 -->
+              </p>
+            </div>
+          </article>
+        </section>
+      </section>
+      <section class="feild-map-section">
+        <header>
+          <h1>화재 알람 필드맵 | Feild Map</h1>
+        </header>
+        <a
+          href="assets/img/dashboard_fieldmap_temp.jpeg"
+          data-lightbox="schematic map"
+          data-title="Fire Alarm Feild Map"
+          ><img class="fire-alarm-feild-map" src="assets/img/6.png" alt=""
+        /></a>
+      </section>
+    </section>
+  </body>
+</html>

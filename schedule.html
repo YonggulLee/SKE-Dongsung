@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- -->
+    <meta charset="utf-8" />
+    <title>SK에코플랜트 현장 IoT System</title>
+    <!-- Design : 마스터 CSS -->
+    <link rel="stylesheet" href="assets/design/css/master.css" />
+    <!-- Design : 상단 탑 네비게이션 -->
+    <link rel="stylesheet" href="assets/design/css/top-bar.css" />
+    <!-- Design : 사이드 네비게이션 -->
+    <link rel="stylesheet" href="assets/design/css/side-bar.css" />
+    <!-- Design : 화재 알람  -->
+    <link rel="stylesheet" href="assets/design/css/schedule.css" />
+    <!-- Design - Plugin : 라이트 박스  -->
+    <link rel="stylesheet" href="assets/plugins/lightbox/css/lightbox.css" />
+    <!-- CDN - Design : 폰트 어섬  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <!-- CDN - library  : 제이쿼리  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- CDN - library  : 엑시오스 -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- Plugin : DateTime Picker - 사진 팝업 및 확대 -->
+    <link href="assets/plugins/dtpicker/picker.min.css" rel="stylesheet" />
+    <script src="assets/plugins/dtpicker/picker.min.js" defer></script>
+    <!-- Plugin : LightBox - 사진 팝업 및 확대 -->
+    <!-- <script src="assets/plugins/lightbox/js/lightbox.js" defer></script> -->
+    <!-- Plugin : SheetJS - 엑셀 파일 생성 -->
+    <!-- <script src="assets/plugins/sheetjs/xlsx.full.min.js" defer></script> -->
+    <!-- Plugin : File Saver - 엑셀 파일 다운로드  -->
+    <!-- <script src="assets/plugins/filesaver/FileSaver.min.js" defer></script> -->
+    <!-- Plugin : File Saver - 엑셀 파일 다운로드  -->
+    <!-- <script src="assets/plugins/chartjs/chart.min.js" defer></script> -->
+    <!-- ETC : Tool Box - 기타 유용한 기능들을 뫃아놓은 툴박스  -->
+    <script src="assets/js/utility.js" defer></script>
+    <!-- PDJ : Page Dafault Javascript -->
+    <script src="assets/js/schedule.js" defer></script>
+    <!-- PDJ : Page Dafault Javascript -->
+    <script src="assets/js/test.js" defer></script>
+  </head>
+
+  <body>
+    <!-- 탑 메뉴 -->
+    <header class="top-bar-container">
+      <nav class="top-bar">
+        <ol class="top-bar-item-box">
+          <li class="top-bar-item">
+            <a href="#">
+              <img src="assets/img/top-bar_logo.png" alt="" />
+            </a>
+          </li>
+
+          <li class="top-bar-item">
+            <span class="top-bar-title">현장IoT플랫폼</span>
+          </li>
+
+          <li class="top-bar-item">
+            <select class="dropbtn" id="preset-list">
+              <option class="dropdown-content" value="">
+                프리셋을 선택하세요
+              </option>
+            </select>
+            <div class="dropdown">
+              <!-- <button class="dropbtn">프리셋을 선택하세요</button>
+              <div class="dropdown-content">
+                <span href="#"> Link 1 </span>
+                <span href="#"> Link 2 </span>
+                <span href="#"> Link 3 </span>
+                <span href="#"> Link 4 </span>
+                <span href="#"> Link 5 </span>
+              </div> -->
+              <button class="preset-start" style="display: none">시작</button>
+              <button class="preset-stop" style="display: none">정지</button>
+            </div>
+          </li>
+
+          <li class="top-bar-item">
+            <a href="#">
+              <img src="assets/img/top-bar_profile.png" alt="" />
+            </a>
+          </li>
+
+          <li class="top-bar-item">
+            <span class="top-bar-name">이용걸</span>
+          </li>
+
+          <li class="top-bar-item">Log-out</li>
+        </ol>
+      </nav>
+    </header>
+
+    <!-- 사이드 메뉴 -->
+    <section class="side-bar-container">
+      <nav class="side-bar">
+        <ol class="side-bar-item-box">
+          <!-- 사이드 메뉴 : 종합현황 -->
+          <li class="side-bar-item">
+            <a href="dashboard.html"
+              >종합현황<br /><span class="side-bar-item-title-eng"
+                >Dashboard</span
+              ></a
+            >
+          </li>
+
+          <!-- 사이드 메뉴 : 장치알람 -->
+          <!-- <li class="side-bar-item">
+            <a href="firealarm.html"
+              >화재 알람<br /><span class="side-bar-item-title-eng"
+                >Fire Alarm</span
+              ></a
+            >
+          </li> -->
+
+          <!-- 사이드 메뉴 : 지상부(제어,센서,통신장비) -->
+          <li class="side-bar-item">
+            <a href="schedule.html"
+              >스케줄<br /><span class="side-bar-item-title-eng"
+                >schedule</span
+              ></a
+            >
+          </li>
+
+          <!-- 사이드 메뉴 : 스마트밴드(건강관리,위치관리) -->
+          <li class="side-bar-item">
+            <a href="smartband.html"
+              >스마트 밴드<br /><span class="side-bar-item-title-eng"
+                >Health & Location</span
+              ></a
+            >
+          </li>
+        </ol>
+      </nav>
+    </section>
+
+    <!-- 콘텐츠 영역 -->
+    <section class="content-container-schedule">
+      <!-- Section : 스케줄 생성 섹션 -->
+      <section class="set-schedule-section">
+        <!-- 스케줄 생성 타이틀 -->
+        <header>
+          <img src="assets/img/timer-30-green-ico.webp" alt="" />
+          <h1>스케줄 생성</h1>
+        </header>
+        <!-- 스케줄 세팅 박스 -->
+        <section class="sd-setting-box">
+          <!-- 이름 세팅 -->
+          <div class="sd-set-name">
+            <h3>이름입력</h3>
+            <input
+              id="sd-set-scheduler-name"
+              class="sd-set-scheduler-name"
+              type="text"
+              placeholder="스케줄 이름을 입력하세요"
+            />
+          </div>
+          <!-- 요일 세팅 -->
+          <div class="sd-set-days">
+            <h3>요일선택</h3>
+            <div class="sd-days-box">
+              <button
+                onclick="selectDaysMon(this.id)"
+                id="sd-days-mon"
+                class="sd-days-off"
+              >
+                월
+              </button>
+              <button
+                onclick="selectDaysTwe(this.id)"
+                id="sd-days-twe"
+                class="sd-days-off"
+              >
+                화
+              </button>
+              <button
+                onclick="selectDaysWen(this.id)"
+                id="sd-days-wen"
+                class="sd-days-off"
+              >
+                수
+              </button>
+              <button
+                onclick="selectDaysThr(this.id)"
+                id="sd-days-thr"
+                class="sd-days-off"
+              >
+                목
+              </button>
+              <button
+                onclick="selectDaysFri(this.id)"
+                id="sd-days-fri"
+                class="sd-days-off"
+              >
+                금
+              </button>
+              <button
+                onclick="selectDaysSat(this.id)"
+                id="sd-days-sat"
+                class="sd-days-off"
+              >
+                토
+              </button>
+              <button
+                onclick="selectDaysSun(this.id)"
+                id="sd-days-sun"
+                class="sd-days-off"
+              >
+                일
+              </button>
+            </div>
+          </div>
+          <!-- 시간 세팅 -->
+          <div class="sd-set-times">
+            <div class="sd-set-times-innerbox-01">
+              <!-- 시작 시간 세팅 -->
+              <div class="sd-set-start-time">
+                <h3>시작시간</h3>
+                <input
+                  id="sd-set-times-start"
+                  type="text"
+                  class="form-control js-time-picker"
+                  value="00:00"
+                />
+              </div>
+              <!-- 종료 시간 세팅 -->
+              <div class="sd-set-end-time">
+                <h3>종료시간</h3>
+                <input
+                  id="sd-set-times-end"
+                  type="text"
+                  class="form-control js-time-picker"
+                  value="00:00"
+                />
+              </div>
+            </div>
+            <div class="sd-set-times-innerbox-02">
+              <!-- 장치 당 가동시간 시간 세팅 -->
+              <div class="sd-set-each-device-run-time">
+                <h3>장치 당 가동시간</h3>
+                <input
+                  id="sd-set-times-operation"
+                  type="text"
+                  class="form-control js-time-picker"
+                  value="00:00"
+                />
+              </div>
+              <!-- 총 가동시간 시간 세팅 -->
+              <div class="sd-device-run-time">
+                <h3>총 가동시간</h3>
+                <input
+                  id="sd-set-times-total-operation"
+                  type="text"
+                  class="form-control js-time-picker"
+                  value="00:00"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+          <!-- 장치 선택 -->
+          <div class="sd-set-device">
+            <h3>장치선택</h3>
+            <div class="sd-devices-box">
+              <div id="sd-device-spk-1" class="sd-devices-off">
+                <i class="fas fa-check-circle"></i> 스프링클러 1
+              </div>
+              <div id="sd-device-spk-2" class="sd-devices-off">
+                <i class="fas fa-check-circle"></i> 스프링클러 2
+              </div>
+              <div id="sd-device-spk-3" class="sd-devices-off">
+                <i class="fas fa-check-circle"></i> 스프링클러 3
+              </div>
+              <div id="sd-device-spk-4" class="sd-devices-off">
+                <i class="fas fa-check-circle"></i> 스프링클러 4
+              </div>
+              <div id="sd-device-spk-5" class="sd-devices-off">
+                <i class="fas fa-check-circle"></i> 스프링클러 5
+              </div>
+              <div id="sd-device-spk-6" class="sd-devices-off">
+                <i class="fas fa-check-circle"></i> 스프링클러 6
+              </div>
+            </div>
+          </div>
+          <button onclick="createNewScheduler()" class="sd-commint-schedule">
+            새로운 스케줄 생성
+          </button>
+        </section>
+      </section>
+      <!-- Section : 생성된 스케줄 리스트 -->
+      <section id="sd-list-section" class="sd-list-section">
+        <!-- 스케줄 리스트 타이틀 -->
+        <!-- <article class="sd-list-item">
+          <header class="sd-item-title">
+            <img src="assets/img/timer-30-green-ico.webp" alt="" />
+            <h1>스케줄 No.00</h1>
+            <button class="sd-delete-btn">삭제</button>
+            <button class="sd-start-btn">시작</button>
+            <button class="sd-stop-btn">정지</button>
+          </header>
+          <div class="sd-item-device-box">
+            <div id="sd-item-spc-" class="sd-item-devices-off">
+              <i class="fas fa-check-circle"></i> 스프링클러 1
+            </div>
+            <div id="sd-item-spc-" class="sd-item-devices-off">
+              <i class="fas fa-check-circle"></i> 스프링클러 2
+            </div>
+            <div id="sd-item-spc-" class="sd-item-devices-off">
+              <i class="fas fa-check-circle"></i> 스프링클러 3
+            </div>
+            <div id="sd-item-spc-" class="sd-item-devices-off">
+              <i class="fas fa-check-circle"></i> 스프링클러 4
+            </div>
+            <div id="sd-item-spc-" class="sd-item-devices-off">
+              <i class="fas fa-check-circle"></i> 스프링클러 5
+            </div>
+            <div id="sd-item-spc-" class="sd-item-devices-off">
+              <i class="fas fa-check-circle"></i> 스프링클러 6
+            </div>
+          </div>
+          <div class="sd-list-item-inner-01">
+            <div class="sd-item-days-box">
+              <button class="sd-item-days-off">일</button>
+              <button class="sd-item-days-off">월</button>
+              <button class="sd-item-days-off">화</button>
+              <button class="sd-item-days-off">수</button>
+              <button class="sd-item-days-off">목</button>
+              <button class="sd-item-days-off">금</button>
+              <button class="sd-item-days-off">토</button>
+            </div>
+            <div class="sd-item-times-box">
+              <div class="sd-item-set-start-time">
+                <h3>시작시간</h3>
+                <input type="time" name="" id="" />
+              </div>
+              <div class="sd-item-set-end-time">
+                <h3>종료시간</h3>
+                <input type="time" name="" id="" />
+              </div>
+              <div class="sd-item-set-each-device-run-time">
+                <h3>가동시간</h3>
+                <input type="time" name="" id="" />
+              </div>
+              <div class="sd-item-device-run-time">
+                <h3>총 가동시간</h3>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </article> -->
+      </section>
+    </section>
+  </body>
+</html>
