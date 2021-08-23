@@ -1,0 +1,68 @@
+section.content-container-firealarm {
+  position: absolute;
+  top: 60px;
+  left: 130px;
+  width: 1720px;
+  height: 950px;
+  padding: 30px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 700px;
+      grid-template-columns: 1fr 700px;
+}
+
+section.content-container-firealarm section.fire-alarm-section {
+  padding: 10px 30px 10px 10px;
+}
+
+section.content-container-firealarm section.fire-alarm-section header {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-left: 2px;
+}
+
+section.content-container-firealarm section.fire-alarm-section section.fire-alarm-box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+section.content-container-firealarm section.fire-alarm-section section.fire-alarm-box article.fire-alarm-component {
+  border-radius: 5px;
+  background-color: #1d2226;
+  border: 1px solid #444343;
+  height: 150px;
+}
+
+section.content-container-firealarm section.fire-alarm-section section.fire-alarm-box article.fire-alarm-component img.fire-alarm-img {
+  margin-top: 30px;
+  margin-left: 99px;
+  margin-bottom: 5px;
+}
+
+section.content-container-firealarm section.fire-alarm-section section.fire-alarm-box article.fire-alarm-component .fire-alarm-title {
+  margin-bottom: 5px;
+  font-size: 20px;
+  text-align: center;
+}
+
+section.content-container-firealarm section.fire-alarm-section section.fire-alarm-box article.fire-alarm-component .fire-alarm-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+section.content-container-firealarm section.feild-map-section header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 2px;
+}
+
+section.content-container-firealarm section.feild-map-section img {
+  width: 680px;
+}

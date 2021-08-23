@@ -1,0 +1,312 @@
+section.content-container-schedule {
+  position: absolute;
+  top: 60px;
+  left: 130px;
+  width: 1720px;
+  height: 950px;
+  padding: 30px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 450px 1fr;
+      grid-template-columns: 450px 1fr;
+}
+
+section.content-container-schedule section.set-schedule-section {
+  width: 440px;
+  height: 685px;
+  border-radius: 5px;
+  background-color: #1d2226;
+  border: 1px solid #2e2e2e;
+}
+
+section.content-container-schedule section.set-schedule-section header {
+  display: -ms-grid;
+  display: grid;
+  padding: 20px;
+  -ms-grid-columns: 30px 1fr;
+      grid-template-columns: 30px 1fr;
+  background-color: #15181b;
+  border-bottom: 1px solid #444343;
+}
+
+section.content-container-schedule section.set-schedule-section header h1.ds-title-scheduler-active {
+  display: block;
+  padding-top: 4.5px;
+  margin-left: 10px;
+  color: #9bcf0a;
+}
+
+section.content-container-schedule section.set-schedule-section header h1.ds-title-scheduler-deactive {
+  display: block;
+  padding-top: 4.5px;
+  margin-left: 10px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box {
+  padding: 25px 20px 0px 20px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box h3 {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-name h3 {
+  margin-bottom: 10px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-name input.sd-set-scheduler-name {
+  width: 384px;
+  height: 48px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-days h3 {
+  margin-bottom: 10px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-days div.sd-days-box .sd-days-on {
+  width: 43px;
+  height: 43px;
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-days div.sd-days-box .sd-days-off {
+  width: 43px;
+  height: 43px;
+  margin-left: 0;
+  margin-right: 10px;
+  background-color: #4a5158;
+  color: #7a7a7a;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times {
+  margin-top: 20px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times div.sd-set-times-innerbox-01 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times div.sd-set-times-innerbox-01 div.sd-set-start-time h3 {
+  margin-bottom: 10px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times div.sd-set-times-innerbox-01 div.sd-set-start-time input#sd-set-times-start {
+  width: 180px;
+  height: 48px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times div.sd-set-times-innerbox-01 div.sd-set-end-time h3 {
+  margin-bottom: 10px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times div.sd-set-times-innerbox-01 div.sd-set-end-time input#sd-set-times-end {
+  width: 180px;
+  height: 48px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times div.sd-set-times-innerbox-02 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times div.sd-set-times-innerbox-02 div.sd-set-each-device-run-time h3 {
+  margin-bottom: 10px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times div.sd-set-times-innerbox-02 div.sd-set-each-device-run-time input#sd-set-times-operation {
+  width: 180px;
+  height: 48px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times div.sd-set-times-innerbox-02 div.sd-device-run-time h3 {
+  margin-bottom: 10px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-times div.sd-set-times-innerbox-02 div.sd-device-run-time input#sd-set-times-total-operation {
+  width: 180px;
+  height: 48px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-device h3 {
+  margin-top: 20px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-device div.sd-devices-box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  color: #9bcf0a;
+  margin-top: 14px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-device div.sd-devices-box .sd-devices-on i {
+  margin-right: 10px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-device div.sd-devices-box .sd-devices-off {
+  color: #7a7a7a;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box div.sd-set-device div.sd-devices-box .sd-devices-off i {
+  margin-right: 10px;
+}
+
+section.content-container-schedule section.set-schedule-section section.sd-setting-box button.sd-commint-schedule {
+  margin-top: 20px;
+  margin-left: 0;
+  width: 100%;
+  height: 48px;
+  background-color: #9bcf0a;
+}
+
+section.content-container-schedule section.sd-list-section {
+  margin-left: 10px;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item {
+  width: 100%;
+  height: 218px;
+  border-radius: 5px;
+  background-color: #1d2226;
+  border: 1px solid #2e2e2e;
+  margin-bottom: 15px;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item header.sd-item-title {
+  padding: 20px;
+  height: 30px;
+  background-color: #15181b;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40px 1fr 60px 60px 60px;
+      grid-template-columns: 40px 1fr 60px 60px 60px;
+  border-bottom: 1px solid #444343;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item header.sd-item-title h1.ds-title-scheduler-active {
+  margin-top: 6px;
+  color: #9bcf0a;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item header.sd-item-title h1.ds-title-scheduler-deactive {
+  margin-top: 6px;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item header.sd-item-title button.sd-delete-btn {
+  background-color: #f56f7b;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item header.sd-item-title button.sd-start-btn {
+  background-color: #9bcf0a;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item header.sd-item-title button.sd-stop-btn {
+  background-color: #fdca57;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-item-device-box {
+  padding: 20px;
+  padding-top: 30px;
+  width: 1063px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 14px;
+  color: #9bcf0a;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-item-device-box div.sd-item-devices i {
+  margin-right: 10px;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-item-device-box div.sd-item-devices-off {
+  color: #7a7a7a;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-item-device-box div.sd-item-devices-off i {
+  margin-right: 10px;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-list-item-inner-01 {
+  padding-left: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 400px 1fr;
+      grid-template-columns: 400px 1fr;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-list-item-inner-01 div.sd-item-days-box button.sd-item-days-on {
+  width: 43px;
+  height: 43px;
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-list-item-inner-01 div.sd-item-days-box button.sd-item-days-off {
+  width: 43px;
+  height: 43px;
+  margin-left: 0;
+  margin-right: 10px;
+  background-color: #4a5158;
+  color: #7a7a7a;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-list-item-inner-01 div.sd-item-times-box {
+  width: 800px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-list-item-inner-01 div.sd-item-times-box div {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 95px 100px;
+      grid-template-columns: 95px 100px;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-list-item-inner-01 div.sd-item-times-box div h3 {
+  font-weight: 600;
+  font-size: 17px;
+  text-align: center;
+  padding-top: 13px;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-list-item-inner-01 div.sd-item-times-box div input {
+  border-radius: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+section.content-container-schedule section.sd-list-section article.sd-list-item div.sd-list-item-inner-01 div.sd-item-times-box div div {
+  border-radius: 5px;
+  background-color: #838383;
+}

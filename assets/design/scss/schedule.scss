@@ -1,0 +1,307 @@
+// Variables
+
+// Default color
+$ske-red: #ff3847 !global;
+$ske-green: #9bcf0a !global;
+$ske-yellow: #fdca57 !global;
+$ske-delete: #f56f7b !global;
+
+// background
+$bg-lv-00: #000000 !global;
+$bg-lv-01: #1d2226 !global;
+$bg-title: #15181b !global;
+$bg-disable: #4a5158 !global;
+
+// text
+$text-place-holder: #797979 !global;
+$text-lv-00: #ffffff !global;
+$text-lv-01: #bebebe !global;
+$text-disable: #7a7a7a !global;
+
+// border
+$border-default: #2e2e2e !global;
+
+//MixIn
+@mixin container-init {
+  position: absolute;
+  top: 60px;
+  left: 130px;
+  width: 1720px;
+  height: 950px;
+  padding: 30px;
+  // border: 1px solid red;
+}
+@mixin box-grid-init() {
+  border-radius: 5px;
+  background-color: $bg-lv-01;
+  border: 1px solid $border-default;
+}
+@mixin box-lv-01-init($width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: 5px;
+  background-color: $bg-lv-01;
+  border: 1px solid $border-default;
+}
+
+section.content-container-schedule {
+  @include container-init();
+  // border: 1px solid red;
+  display: grid;
+  grid-template-columns: 450px 1fr;
+  section.set-schedule-section {
+    @include box-lv-01-init(440px, 685px);
+    // border: 1px solid greenyellow;
+    header {
+      // border: 1px solid red;
+      display: grid;
+      padding: 20px;
+      grid-template-columns: 30px 1fr;
+      background-color: $bg-title;
+      border-bottom: 1px solid #444343;
+      h1.ds-title-scheduler-active {
+        display: block;
+        padding-top: 4.5px;
+        margin-left: 10px;
+        color: $ske-green;
+      }
+      h1.ds-title-scheduler-deactive {
+        display: block;
+        padding-top: 4.5px;
+        margin-left: 10px;
+      }
+    }
+    section.sd-setting-box {
+      // border: 1px solid powderblue;
+      padding: 25px 20px 0px 20px;
+      h3 {
+        font-weight: 600;
+        font-size: 17px;
+      }
+      div.sd-set-name {
+        h3 {
+          margin-bottom: 10px;
+        }
+        input.sd-set-scheduler-name {
+          width: 384px;
+          height: 48px;
+          border-radius: 10px;
+          text-align: center;
+          font-size: 20px;
+          margin-bottom: 20px;
+        }
+      }
+      div.sd-set-days {
+        h3 {
+          margin-bottom: 10px;
+        }
+        div.sd-days-box {
+          .sd-days-on {
+            width: 43px;
+            height: 43px;
+            margin-left: 0;
+            margin-right: 10px;
+          }
+          .sd-days-off {
+            width: 43px;
+            height: 43px;
+            margin-left: 0;
+            margin-right: 10px;
+            background-color: $bg-disable;
+            color: $text-disable;
+          }
+        }
+      }
+      div.sd-set-times {
+        margin-top: 20px;
+        div.sd-set-times-innerbox-01 {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          div.sd-set-start-time {
+            h3 {
+              margin-bottom: 10px;
+            }
+            input#sd-set-times-start {
+              width: 180px;
+              height: 48px;
+              border-radius: 10px;
+              text-align: center;
+              font-size: 20px;
+            }
+          }
+          div.sd-set-end-time {
+            h3 {
+              margin-bottom: 10px;
+            }
+            input#sd-set-times-end {
+              width: 180px;
+              height: 48px;
+              border-radius: 10px;
+              text-align: center;
+              font-size: 20px;
+            }
+          }
+        }
+        div.sd-set-times-innerbox-02 {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          margin-top: 20px;
+          div.sd-set-each-device-run-time {
+            h3 {
+              margin-bottom: 10px;
+            }
+            input#sd-set-times-operation {
+              width: 180px;
+              height: 48px;
+              border-radius: 10px;
+              text-align: center;
+              font-size: 20px;
+            }
+          }
+          div.sd-device-run-time {
+            h3 {
+              margin-bottom: 10px;
+            }
+            input#sd-set-times-total-operation {
+              width: 180px;
+              height: 48px;
+              border-radius: 10px;
+              text-align: center;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+      div.sd-set-device {
+        h3 {
+          margin-top: 20px;
+        }
+        div.sd-devices-box {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 14px;
+          color: $ske-green;
+          margin-top: 14px;
+          .sd-devices-on {
+            i {
+              margin-right: 10px;
+            }
+          }
+          .sd-devices-off {
+            color: $text-disable;
+            i {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      button.sd-commint-schedule {
+        margin-top: 20px;
+        margin-left: 0;
+        width: 100%;
+        height: 48px;
+        background-color: $ske-green;
+      }
+    }
+  }
+  section.sd-list-section {
+    // border: 1px solid peru;
+    margin-left: 10px;
+    article.sd-list-item {
+      @include box-lv-01-init(100%, 218px);
+      margin-bottom: 15px;
+      header.sd-item-title {
+        padding: 20px;
+        height: 30px;
+        background-color: $bg-title;
+        display: grid;
+        grid-template-columns: 40px 1fr 60px 60px 60px;
+        border-bottom: 1px solid #444343;
+        h1.ds-title-scheduler-active {
+          margin-top: 6px;
+          color: $ske-green;
+        }
+        h1.ds-title-scheduler-deactive {
+          margin-top: 6px;
+        }
+        button.sd-delete-btn {
+          background-color: $ske-delete;
+        }
+        button.sd-start-btn {
+          background-color: $ske-green;
+        }
+        button.sd-stop-btn {
+          background-color: $ske-yellow;
+        }
+      }
+      div.sd-item-device-box {
+        padding: 20px;
+        padding-top: 30px;
+        width: 1063px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 14px;
+        color: #9bcf0a;
+        div.sd-item-devices {
+          i {
+            margin-right: 10px;
+          }
+        }
+        div.sd-item-devices-off {
+          color: $text-disable;
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+      div.sd-list-item-inner-01 {
+        padding-left: 20px;
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        div.sd-item-days-box {
+          // border: 1px solid royalblue;
+          button.sd-item-days-on {
+            width: 43px;
+            height: 43px;
+            margin-left: 0;
+            margin-right: 10px;
+          }
+          button.sd-item-days-off {
+            width: 43px;
+            height: 43px;
+            margin-left: 0;
+            margin-right: 10px;
+            background-color: $bg-disable;
+            color: $text-disable;
+          }
+        }
+        div.sd-item-times-box {
+          width: 800px;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          // border: 1px solid royalblue;
+          div {
+            display: grid;
+            grid-template-columns: 95px 100px;
+            h3 {
+              // border: 1px solid green;
+              font-weight: 600;
+              font-size: 17px;
+              text-align: center;
+              padding-top: 13px;
+            }
+            input {
+              border-radius: 10px;
+              text-align: center;
+              font-size: 15px;
+            }
+            div {
+              border-radius: 5px;
+              background-color: rgb(131, 131, 131);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+// Variables
+
+// Default color
+$ske-red: #ff3847 !global;
+
+// background
+$bg-lv-00: #000000 !global;
+$bg-lv-01: #1d2226 !global;
+
+// text
+$text-place-holder: #797979 !global;
+$text-lv-00: #ffffff !global;
+$text-lv-01: #bebebe !global;
+
+// border
+$border-default: #444343 !global;
+
+//MixIn
+@mixin container-init {
+  position: absolute;
+  top: 60px;
+  left: 130px;
+  width: 1720px;
+  height: 950px;
+  padding: 30px;
+  // border: 1px solid red;
+}
+@mixin box-grid-init() {
+  border-radius: 5px;
+  background-color: $bg-lv-01;
+  border: 1px solid $border-default;
+}
+@mixin box-lv-01-init($width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: 5px;
+  background-color: $bg-lv-01;
+  border: 1px solid $border-default;
+}
+
+section.content-container-firealarm {
+  @include container-init();
+  display: grid;
+  grid-template-columns: 1fr 700px;
+  section.fire-alarm-section {
+    padding: 10px 30px 10px 10px;
+    // border: 1px solid rgb(255, 130, 47);
+    header {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding-left: 2px;
+    }
+    section.fire-alarm-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 20px;
+      article.fire-alarm-component {
+        // border: 1px solid greenyellow;
+        @include box-grid-init();
+        height: 150px;
+        img.fire-alarm-img {
+          margin-top: 30px;
+          margin-left: 99px;
+          margin-bottom: 5px;
+        }
+
+        .fire-alarm-title {
+          margin-bottom: 5px;
+          font-size: 20px;
+          text-align: center;
+        }
+
+        .fire-alarm-status {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  section.feild-map-section {
+    // border: 1px solid greenyellow;
+    header {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-left: 2px;
+    }
+    img {
+      width: 680px;
+    }
+  }
+}
